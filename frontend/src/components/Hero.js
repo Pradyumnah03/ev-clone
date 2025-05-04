@@ -14,8 +14,6 @@ const HeroContainer = styled.div`
   align-items: center;
   padding: 6rem 2rem 2rem;
   color: ${props => props.textColor || '#000'};
-  scroll-snap-align: start;
-  position: relative;
 `;
 
 const HeroContent = styled.div`

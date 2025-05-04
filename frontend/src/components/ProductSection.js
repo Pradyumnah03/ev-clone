@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SectionContainer = styled.div`
   height: 100vh;
@@ -15,7 +15,6 @@ const SectionContainer = styled.div`
   padding: 6rem 2rem 2rem;
   color: ${props => props.textColor || '#000'};
   scroll-snap-align: start;
-  position: relative;
 `;
 
 const SectionContent = styled.div`
@@ -89,13 +88,6 @@ const ProductSection = ({
   secondaryButtonLink,
   textColor
 }) => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = (path) => {
-    navigate(path);
-    window.location.reload();
-  };
-
   return (
     <SectionContainer backgroundImage={backgroundImage} textColor={textColor}>
       <SectionContent>
@@ -103,12 +95,12 @@ const ProductSection = ({
         <Subtitle>{subtitle}</Subtitle>
         <ButtonContainer>
           {primaryButtonText && (
-            <Button to="#" onClick={() => handleButtonClick(primaryButtonLink)} className="primary">
+            <Button to={primaryButtonLink} className="primary">
               {primaryButtonText}
             </Button>
           )}
           {secondaryButtonText && (
-            <Button to="#" onClick={() => handleButtonClick(secondaryButtonLink)} className="secondary">
+            <Button to={secondaryButtonLink} className="secondary">
               {secondaryButtonText}
             </Button>
           )}

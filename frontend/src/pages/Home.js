@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import Hero from '../components/Hero';
 import ProductSection from '../components/ProductSection';
 
 const HomeContainer = styled.div`
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity; // Changed from mandatory to proximity
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -18,11 +18,16 @@ const HomeContainer = styled.div`
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  /* Add smooth scrolling behavior */
+  scroll-behavior: smooth;
 `;
 
 const Home = () => {
+  const containerRef = useRef(null);
+
   return (
-    <HomeContainer>
+    <HomeContainer ref={containerRef}>
       <Hero
         title="Model S"
         subtitle="Order Online for Touchless Delivery"
